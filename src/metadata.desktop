@@ -1,0 +1,23 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Simple timer
+Name[ru]=Простой таймер
+Comment=Allows to quickly set the timer
+Comment[ru]=Позволяет быстро устанавливать таймер
+
+Type=Service
+Icon=chronometer
+ServiceTypes=Plasma/Runner
+
+X-Plasma-API=python
+X-Plasma-MainScript=code/main.py
+
+X-KDE-PluginInfo-Name=timer
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Author=Konstantin Enchant
+X-KDE-PluginInfo-Email=sirkonst@gmail.com
+X-KDE-PluginInfo-Website=https://github.com/sirkonst/krunner-timer
+X-KDE-PluginInfo-EnabledByDefault=true
+X-KDE-PluginInfo-Category=
+X-KDE-PluginInfo-License=MIT
+X-KDE-PluginInfo-Depends=
