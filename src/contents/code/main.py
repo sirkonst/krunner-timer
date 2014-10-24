@@ -183,7 +183,7 @@ class TimerRunner(plasmascript.Runner):
 
         notify(
             'Timer alarm!', body, app_name='Timer', app_icon='chronometer',
-            timeout=60
+            timeout=120
         )
 
 
