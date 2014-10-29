@@ -7,26 +7,7 @@ from PyKDE4.plasma import Plasma
 from PyKDE4.kdeui import KIcon
 from PyQt4.QtCore import QTimer
 
-import dbus
-
 from .notifications import Notifications
-# ------------------------------------------------------------------------------
-
-
-def notify(title, body='', app_name='', app_icon='', timeout=30,
-           actions=None, hints=None, replaces_id=0):
-        _bus_name = 'org.freedesktop.Notifications'
-        _object_path = '/org/freedesktop/Notifications'
-        _interface_name = _bus_name
-
-        session_bus = dbus.SessionBus()
-        obj = session_bus.get_object(_bus_name, _object_path)
-        interface = dbus.Interface(obj, _interface_name)
-        interface.Notify(
-            app_name, replaces_id, app_icon, title, body, actions or [],
-            hints or [], timeout * 1000
-        )
-
 # ------------------------------------------------------------------------------
 
 
@@ -188,7 +169,7 @@ class TimerRunner(plasmascript.Runner):
         body = _t.format(val=timer.orig_value, suff=timer.suffix, comm=comment)
 
         self.notifications.notify(
-            'on-timer', 'Timer alarm!', body
+            'on-timer', 'Timer alarm!', body, timeout=120
         )
 
 # ------------------------------------------------------------------------------

@@ -2,10 +2,9 @@
 # ------------------------------------------------------------------------------
 from __future__ import unicode_literals
 
-from PyQt4.Qt import QBitArray, QString, QPixmap
+from PyKDE4.kdecore import KGlobal
 
-from PyKDE4.kdecore import KGlobal, KComponentData
-from PyKDE4.kdeui import KNotification
+import dbus
 
 import os
 from shutil import copyfile
@@ -36,17 +35,18 @@ class Notifications(object):
         copyfile(self.source, rcpath)
 
     def notify(self, event_name, title, message, timeout=0):
-        comp = KComponentData(
-            self.appname, self.appname,
-            KComponentData.SkipMainComponentRegistration
-        )
+        # Do notify by dbus because KNotification doesn't respect timeout
+        _bus_name = 'org.kde.knotify'
+        _object_path = '/Notify'
+        _interface_name = 'org.kde.KNotify'
 
-        KNotification.event(
-            event_name,
-            title,
-            message,
-            QPixmap(),
-            None,
-            KNotification.Persistent,
-            comp
+        session_bus = dbus.SessionBus()
+        obj = session_bus.get_object(_bus_name, _object_path)
+        interface = dbus.Interface(obj, _interface_name)
+        interface.event(
+            event_name, self.appname, [],
+            title, message,
+            "", "",
+            timeout * 1000,
+            0
         )

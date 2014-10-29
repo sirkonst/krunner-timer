@@ -15,4 +15,3 @@ Name=On timer
 Name[ru]=Таймер сработал
 Action=Popup|Sound
 Sound=KDE-Im-Phone-Ring.ogg
-Persistant=True
