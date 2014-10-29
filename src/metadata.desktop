@@ -14,7 +14,7 @@ X-Plasma-MainScript=code/main.py
 X-Plasma-NotificationArea=true
 
 X-KDE-PluginInfo-Name=timer
-X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Version=2.0
 X-KDE-PluginInfo-Author=Konstantin Enchant
 X-KDE-PluginInfo-Email=sirkonst@gmail.com
 X-KDE-PluginInfo-Website=https://github.com/sirkonst/krunner-timer
