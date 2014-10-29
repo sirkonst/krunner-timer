@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-t
 # ------------------------------------------------------------------------------
-from __future__ import unicode_literals
+from __future__ import unicode_literals, absolute_import
 
 from PyKDE4 import plasmascript
 from PyKDE4.plasma import Plasma
@@ -8,6 +8,8 @@ from PyKDE4.kdeui import KIcon
 from PyQt4.QtCore import QTimer
 
 import dbus
+
+from .notifications import Notifications
 # ------------------------------------------------------------------------------
 
 
@@ -87,6 +89,12 @@ class TimerRunner(plasmascript.Runner):
             Plasma.RunnerSyntax('timer :q:[s:m:h]', 'Set timer :q:')
         )
         self.timer_list = []
+        self.notifications = Notifications(
+            'krunner-timer',
+            source='{base}/contents/misc/notifyrc'.format(
+                base=self.package().path()
+            )
+        )
 
     def match(self, context):
         if not context.isValid():
@@ -162,10 +170,8 @@ class TimerRunner(plasmascript.Runner):
                 _t = 'For {val} {suff}: "{comm}".'
             body = _t.format(
                 val=timer.orig_value, suff=timer.suffix, comm=comment)
-            notify(
-                'Timer is running', body,
-                app_name='Timer', app_icon='chronometer',
-                timeout=2
+            self.notifications.notify(
+                'start-timer', 'Timer is running', body
             )
         else:
             timer.stop()
@@ -181,11 +187,9 @@ class TimerRunner(plasmascript.Runner):
             _t = 'On {val} {suff}: "{comm}".'
         body = _t.format(val=timer.orig_value, suff=timer.suffix, comm=comment)
 
-        notify(
-            'Timer alarm!', body, app_name='Timer', app_icon='chronometer',
-            timeout=120
+        self.notifications.notify(
+            'on-timer', 'Timer alarm!', body
         )
-
 
 # ------------------------------------------------------------------------------
 

@@ -1,0 +1,18 @@
+[Global]
+Encoding=UTF-8
+IconName=chronometer
+Name=Timer
+Comment=Timer for krunner
+Comment[ru]=Таймер krunner
+
+[Event/start-timer]
+Name=Start timer
+Name[ru]=Таймер запущен
+Action=Popup
+
+[Event/on-timer]
+Name=On timer
+Name[ru]=Таймер сработал
+Action=Popup|Sound
+Sound=KDE-Im-Phone-Ring.ogg
+Persistant=True

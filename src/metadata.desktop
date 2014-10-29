@@ -7,10 +7,11 @@ Comment[ru]=Позволяет быстро устанавливать тайм�
 
 Type=Service
 Icon=chronometer
-ServiceTypes=Plasma/Runner
+ServiceTypes=Plasma/Runner,Plasma/PopupApplet
 
 X-Plasma-API=python
 X-Plasma-MainScript=code/main.py
+X-Plasma-NotificationArea=true
 
 X-KDE-PluginInfo-Name=timer
 X-KDE-PluginInfo-Version=1.0
