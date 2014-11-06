@@ -128,7 +128,7 @@ class TimerRunner(plasmascript.Runner):
                     val=timer.orig_value, suf=timer.suffix, com=timer.comment
                 )
             )
-            m.setSubtext('select for cancel')
+            m.setSubtext('select to cancel')
             m.setType(Plasma.QueryMatch.ExactMatch)
             m.setIcon(KIcon('chronometer'))
             m.setRelevance(0.9)
