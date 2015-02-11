@@ -10,8 +10,20 @@ Name=Start timer
 Name[ru]=Таймер запущен
 Action=Popup
 
+[Event/set-alarm]
+Name=Set alarm
+Name[ru]=Будильник установлен
+Action=Popup
+
 [Event/on-timer]
 Name=On timer
 Name[ru]=Таймер сработал
 Action=Popup|Sound
 Sound=KDE-Im-Phone-Ring.ogg
+
+[Event/on-alarm]
+Name=On alarm
+Name[ru]=Будильник сработал
+Action=Popup|Sound
+Sound=KDE-Im-Phone-Ring.ogg
+

@@ -1,9 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Simple timer
-Name[ru]=Простой таймер
-Comment=Allows to quickly set the timer
-Comment[ru]=Позволяет быстро устанавливать таймер
+Name=Simple alarm and timer
+Name[ru]=Простой будильник и таймер
+Comment=Allows to quickly set alarms or timers
+Comment[ru]=Позволяет быстро устанавливать будильники и таймеры
 
 Type=Service
 Icon=chronometer
@@ -13,8 +13,8 @@ X-Plasma-API=python
 X-Plasma-MainScript=code/main.py
 X-Plasma-NotificationArea=true
 
-X-KDE-PluginInfo-Name=timer
-X-KDE-PluginInfo-Version=2.0
+X-KDE-PluginInfo-Name=alarmtimer
+X-KDE-PluginInfo-Version=3.0
 X-KDE-PluginInfo-Author=Konstantin Enchant
 X-KDE-PluginInfo-Email=sirkonst@gmail.com
 X-KDE-PluginInfo-Website=https://github.com/sirkonst/krunner-timer
